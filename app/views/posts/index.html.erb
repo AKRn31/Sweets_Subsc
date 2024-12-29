@@ -1,2 +1,14 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<h1>投稿一覧</h1>
+
+  <h4>ユーザー名</h4>
+  <h4>タイトル</h4>
+
+  <% @posts.each do |post| %>
+    <%= link_to post_path(post.id) do %>
+      <%= @user.username %>
+      <%= post.title %>
+    <% end %>
+  <% end %>
+ 
+
+
