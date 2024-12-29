@@ -1,0 +1,2 @@
+module SubscsHelper
+end

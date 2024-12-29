@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  company_name: MyString
+  title: MyString
+  introduction: MyText
+  fee: 1
+  postage: 1
+  delivery_frequenc: MyString
+  minimum_period: MyString
+
+two:
+  name: MyString
+  company_name: MyString
+  title: MyString
+  introduction: MyText
+  fee: 1
+  postage: 1
+  delivery_frequenc: MyString
+  minimum_period: MyString

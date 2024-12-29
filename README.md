@@ -1,27 +1,3 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
 
 # Sweets Subsc
 
@@ -58,3 +34,7 @@ Things you may want to cover:
 - IDE：Cloud9
 ​
 ## 使用素材
+著作権を考慮し、架空のデータを扱う予定です。
+なお今後、実在するデータを利用する際には、事前に著作権保持者と契約を結んだ上で利用します。
+
+https://www.photo-ac.com/main/detail/25690799&title=%E3%83%8F%E3%83%BC%E3%83%88%E5%9E%8B%E3%81%AE%E3%82%AF%E3%83%83%E3%82%AD%E3%83%BC%E3%81%A8%E8%8A%B1
