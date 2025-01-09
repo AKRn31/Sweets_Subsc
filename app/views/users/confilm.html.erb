@@ -1,2 +1,4 @@
-<h1>Users#confilm</h1>
-<p>Find me in app/views/users/confilm.html.erb</p>
+<h1>本当に退会しますか？</h1>
+
+  <%= link_to "退会しない", user_path %>
+  <%= link_to "退会する", users_comfilm_path, method: :patch,  data: { confirm: "本当に退会しますか？" }  %>

@@ -1,14 +1,24 @@
 <h1>投稿一覧</h1>
 
-  <h4>ユーザー名</h4>
-  <h4>タイトル</h4>
-
-  <% @posts.each do |post| %>
-    <%= link_to post_path(post.id) do %>
-      <%= @user.username %>
-      <%= post.title %>
+<div>
+  
+  <% @posts.each do |post| %>  
+    <%= link_to user_path(post.user.id) do %>
+      <p>ユーザーネーム<%= post.user.username %></p>
     <% end %>
+    <p>サブスク名<%= post.subsc.name %></p>
+    <p>タイトル<%= post.title %></p>
+    <p>詳細 <%= post.body %></p>
+   #投稿画像
+    <% if post.image.attached? %>
+      <% post.image.each do |image| %>
+        <%= image_tag image.variant(resize: '200x200') %>
+      <% end %>
+    <% end %>
+    <%= link_to "詳細", post_path(post) %>
   <% end %>
+  
+</div>
  
 
 

@@ -1,2 +1,22 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>ユーザー詳細画面</h1>
+  <p>ユーザーネーム<%= @user.username %></p>
+  <% if @user = current_user %>
+    <p>メースアドレス<%= @user.email %></p>
+    <p><%= link_to "ユーザー情報の編集", edit_user_path(@user) %></p>
+  <% end %>
+
+  <h4>投稿一覧</h4>
+  <% @posts.each do |post| %>
+    <p>サブスク名<%= post.subsc.name %></p>
+    <p>タイトル<%= post.title %></p>
+    <p>詳細<%= post.body %></p>
+    <p>#画像
+      <% if post.image.attached? %>
+        <% post.image.each do |image| %>
+          <%= image_tag image.variant(resize: '400x400') %>
+         <% end %>
+      <% end %></p>
+  <% end %>
+  
+
+

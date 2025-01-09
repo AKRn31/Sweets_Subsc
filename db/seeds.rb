@@ -5,3 +5,31 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Subsc.create(
+  [
+    {name: "snakcs",
+    company_name: "スナック会社",
+    title: "sunaku",
+    introduction: "oisii",
+    fee: "1000",
+    postage: "200",
+    delivery_frequenc: "1週間",
+    minimum_period: "2週間"},
+    {name: "チョコ",
+    company_name: "スナック会社",
+    title: "sunaku",
+    introduction: "oisii",
+    fee: "1000",
+    postage: "200",
+    delivery_frequenc: "1週間",
+    minimum_period: "2週間"},
+    {name: "クッキー",
+    company_name: "スナック会社",
+    title: "sunaku",
+    introduction: "oisii",
+    fee: "1000",
+    postage: "200",
+    delivery_frequenc: "1週間",
+    minimum_period: "2週間"},
+  ]
+)
