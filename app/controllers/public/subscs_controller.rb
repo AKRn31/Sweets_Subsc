@@ -1,4 +1,4 @@
-class SubscsController < ApplicationController
+class Public::SubscsController < ApplicationController
   def index
     @subsc=Subsc.all
   end

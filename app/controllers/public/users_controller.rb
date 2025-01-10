@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class Public::UsersController < ApplicationController
   def show
     @user=User.find(params[:id])
     @posts=@user.posts
@@ -29,7 +29,11 @@ class UsersController < ApplicationController
   end
 
   def withdraw
-    
+    @user = User.find(current_user.id)
+    @user.update(is_deleted: true)
+    reset_session
+    flash[:notice] = "退会処理を実行いたしました"
+    redirect_to root_path
   end
   
 
