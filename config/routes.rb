@@ -6,9 +6,10 @@ scope module: :public do
   resources :posts 
   resources :subscs, only:[:index, :show]
   resources :comments, only:[:new, :create, :destroy]
-  resources :users, only:[:show, :edit, :update, :destroy]
-  get  '/users/confilm' => 'users#confilm'
-  patch  '/users/withdraw' => 'users#withdraw'
+  resources :users, only:[:show, :edit, :update] do
+    get 'confirm'
+    patch  'withdraw'
+  end
 end  
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

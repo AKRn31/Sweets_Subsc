@@ -14,18 +14,15 @@ class Public::UsersController < ApplicationController
   def update
     @user=User.find(params[:id])
     if @user.update(user_params)
-    flash[:notice] = "You have updated user successfully."
+    flash[:notice] = "保存しました"
     redirect_to user_path
     else
       render :edit
     end
   end
 
-  def destroy
-  end
-
-  def confilm
-    
+  def confirm
+    @user = User.find(current_user.id)
   end
 
   def withdraw

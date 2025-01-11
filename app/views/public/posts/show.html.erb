@@ -1,24 +1,36 @@
-<h1>投稿詳細</h1>
-  <h4>ユーザーネーム</h4>
-  <h4>タイトル</h4>
-  <h4>詳細</h4>
-  <h4>画像</h4>
-  <h4>コメント</h4>
-
- 
-    <%= @post.user.username %>
-
-    <%= @post.title %>
-    <%= @post.body %>
-    <% if @post.image.attached? %>
-      <% @post.image.each do |image| %>
-        <%= image_tag image.variant(resize: '200x200') %>
-      <% end %>
-    <% end %>
-    <% if @post.user == current_user %>
-      <%= link_to "編集", edit_post_path(@post) %>
-      <%= link_to "削除", post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？" %>
-    <% end %>
-
-  <%= link_to "コメントする", new_comment_path %>
+<h2>投稿詳細</h2>
+  <table class="table">
+    <thead>
+      <tr> 
+        <th><h4>ユーザーネーム</h4></th>
+        <th><h4>サブスク名</h4></th>
+        <th><h4>タイトル</h4></th>
+        <th><h4>詳細</h4></th>
+        <th><h4>画像</h4></th>
+        <th><h4>コメント</h4></th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @post.user.username %></td>
+        <td><%= @post.subsc.name %></td>
+        <td><%= @post.title %></td>
+        <td><%= @post.body %></td>
+        <td><% if @post.image.attached? %>
+              <% @post.image.each do |image| %>
+                <%= image_tag image.variant(resize: '200x200') %>
+              <% end %>
+            <% end %></td>
+            <td></td>
+        <% if @post.user == current_user %>
+          <td><%= link_to "編集", edit_post_path(@post) %></td>
+          <td><%= link_to "削除", post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+        <% end %>
+        <td><%= link_to "コメントする", new_comment_path %></td>
+      </tr>
+    </tbody>
+  </table>
   

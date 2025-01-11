@@ -1,4 +1,4 @@
-<h1>ユーザー詳細画面</h1>
+<h2>ユーザー詳細画面</h2>
   <p>ユーザーネーム<%= @user.username %></p>
   <% if @user = current_user %>
     <p>メースアドレス<%= @user.email %></p>
@@ -16,6 +16,7 @@
           <%= image_tag image.variant(resize: '400x400') %>
          <% end %>
       <% end %></p>
+    <p><%= link_to "詳細", post_path(post.id) %>
   <% end %>
   
 

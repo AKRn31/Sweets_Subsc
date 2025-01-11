@@ -1,3 +1,4 @@
+<h2>レビュー投稿</h2>
 <% if @post.errors.any? %>
   <%= @post.errors.count %>件のエラーが発生しました
   <ul>
@@ -7,7 +8,7 @@
   </ul>
 <% end %>
 
-<h1>レビュー投稿</h1>
+
 <%= form_with model: @post do |f| %>
   
   <p>ユーザーネーム<%= current_user.username %></p>
@@ -15,12 +16,9 @@
   <p>タイトル<%= f.text_area :title %></p>
   <p>詳細 <%= f.text_area :body %></p>
   #投稿画像
-  
   <div class="field">
-  <%= f.file_field :images, multiple: true %>
+    <%= f.file_field :images, multiple: true %>
   </div>
-
-  
   <%= f.submit '投稿' %>
 
 <% end %>
