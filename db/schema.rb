@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2025_01_08_162721) do
     t.text "introduction"
     t.integer "fee"
     t.integer "postage"
-    t.string "delivery_frequenc"
+    t.string "delivery_frequency"
     t.string "minimum_period"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -77,11 +77,10 @@ ActiveRecord::Schema.define(version: 2025_01_08_162721) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "username"
+    t.boolean "is_deleted", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "name"
-    t.string "username"
-    t.boolean "is_deleted"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

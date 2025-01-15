@@ -5,31 +5,35 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Subsc.create(
-  [
-    {name: "snakcs",
+Subsc.find_or_create_by!(
+    name: "snakcs",
     company_name: "スナック会社",
     title: "sunaku",
     introduction: "oisii",
     fee: "1000",
     postage: "200",
-    delivery_frequenc: "1週間",
-    minimum_period: "2週間"},
-    {name: "チョコ",
+    delivery_frequency: "1週間",
+    minimum_period: "2週間"
+)
+
+    Subsc.find_or_create_by!(
+    name: "チョコ",
     company_name: "スナック会社",
     title: "sunaku",
     introduction: "oisii",
     fee: "1000",
     postage: "200",
-    delivery_frequenc: "1週間",
-    minimum_period: "2週間"},
-    {name: "クッキー",
+    delivery_frequency: "1週間",
+    minimum_period: "2週間"
+    )
+
+    Subsc.find_or_create_by!(
+    name: "クッキー",
     company_name: "スナック会社",
     title: "sunaku",
     introduction: "oisii",
     fee: "1000",
     postage: "200",
-    delivery_frequenc: "1週間",
-    minimum_period: "2週間"},
-  ]
+    delivery_frequency: "1週間",
+    minimum_period: "2週間"
 )

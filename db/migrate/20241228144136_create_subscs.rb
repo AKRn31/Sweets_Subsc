@@ -7,7 +7,7 @@ class CreateSubscs < ActiveRecord::Migration[6.1]
       t.text :introduction
       t.integer :fee
       t.integer :postage
-      t.string :delivery_frequenc
+      t.string :delivery_frequency
       t.string :minimum_period
 
       t.timestamps
