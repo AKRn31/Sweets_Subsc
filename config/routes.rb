@@ -3,9 +3,10 @@ scope module: :public do
   devise_for :users
   root to: "homes#top"
 
-  resources :posts 
+  resources :posts do
+    resources :comments, only:[:create, :destroy]
+  end
   resources :subscs, only:[:index, :show]
-  resources :comments, only:[:new, :create, :destroy]
   resources :users, only:[:show, :edit, :update] do
     get 'confirm'
     patch  'withdraw'
