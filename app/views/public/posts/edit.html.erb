@@ -16,6 +16,7 @@
     <div class="field">
       <%= f.file_field :images, multiple: true %>
     </div>
-    <%= f.submit '編集' %>
+    <%= f.submit '保存' %>
+    <%= link_to "削除", post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？" %>
     <%= link_to '戻る', post_path %>
   <% end %>

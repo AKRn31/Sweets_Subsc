@@ -16,11 +16,14 @@
     </thead>
     <tbody>
       <tr>
-        <td><%= @post.user.username %></td>
+        <td><%= link_to user_path(@user) do %>
+              <%= @post.user.username %>
+            <% end %></td>
         <td><%= @post.subsc.name %></td>
         <td><%= @post.title %></td>
         <td><%= @post.body %></td>
-        <td><% if @post.image.attached? %>
+        <td>
+        <% if @post.image.attached? %>
               <% @post.image.each do |image| %>
                 <%= image_tag image.variant(resize: '200x200') %>
               <% end %>
@@ -28,7 +31,6 @@
             <td></td>
         <% if @post.user == current_user %>
           <td><%= link_to "編集", edit_post_path(@post) %></td>
-          <td><%= link_to "削除", post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
         <% end %>
         <td>コメント数: <%= @post.comments.count %></td>
       </tr>

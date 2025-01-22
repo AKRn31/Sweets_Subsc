@@ -29,17 +29,17 @@ class Public::PostsController < ApplicationController
 
   def edit
     @post=Post.find(params[:id])
+    @user=@post.user
     unless @post.user.id == current_user.id
       redirect_to posts_path
     end
-
   end
 
   def update
     @post=Post.find(params[:id])
     if @post.update(post_params)
       flash[:notice] = "投稿を保存しました"
-      redirect_to posts_path(@post.id) 
+      redirect_to post_path(@post.id) 
     else
       render :edit
     end
@@ -49,7 +49,7 @@ class Public::PostsController < ApplicationController
     post=Post.find(params[:id])
     post.destroy
     flash[:notice] = "削除しました"
-    redirect_to posts_path
+    redirect_to user_path(current_user.id)
   end
 
 

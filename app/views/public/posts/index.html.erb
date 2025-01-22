@@ -19,10 +19,11 @@
       <td><%= post.subsc.name %></td>
       <td><%= post.title %></td>
       <td><%= post.body %></td>
-      <td><% if post.image.attached? %>
+      <td>
+          <% if post.image.attached? %>
             <% post.image.each do |image| %>
               <%= image_tag image.variant(resize: '200x200') %>
-           <% end %>
+            <% end %>
           <% end %>
       </td>
       <td><%= link_to "詳細", post_path(post) %></td>
