@@ -23,8 +23,8 @@
         <td><%= @post.title %></td>
         <td><%= @post.body %></td>
         <td>
-        <% if @post.image.attached? %>
-              <% @post.image.each do |image| %>
+        <% if @post.images.attached? %>
+              <% @post.images.each do |image| %>
                 <%= image_tag image.variant(resize: '200x200') %>
               <% end %>
             <% end %></td>

@@ -5,6 +5,7 @@ scope module: :public do
 
   resources :posts do
     resources :comments, only:[:create, :destroy]
+    get 'images', to: 'posts#image'
   end
   resources :subscs, only:[:index, :show]
   resources :users, only:[:show, :edit, :update] do

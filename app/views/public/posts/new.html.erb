@@ -15,7 +15,6 @@
   <p>サブスク名<%= f.select :subsc_id, options_from_collection_for_select( Subsc.all, :id, :name) %></p>
   <p>タイトル<%= f.text_area :title %></p>
   <p>詳細 <%= f.text_area :body %></p>
-  #投稿画像
   <div class="field">
     <%= f.file_field :images, multiple: true %>
   </div>

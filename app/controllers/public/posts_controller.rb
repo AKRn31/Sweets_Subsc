@@ -6,6 +6,12 @@ class Public::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user= current_user
+    images = params[:post][:images]
+    if images
+      images.each do |image|
+        @post.image.attach(images)
+      end
+    end
     if @post.save
       flash[:notice] = "投稿しました"
       redirect_to @post
@@ -56,6 +62,6 @@ class Public::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :subsc_id, image: [])
+    params.require(:post).permit(:title, :body, :subsc_id, images: [])
   end
 end
