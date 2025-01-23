@@ -11,8 +11,8 @@
     <p>タイトル<%= post.title %></p>
     <p>詳細<%= post.body %></p>
     <p>#画像
-      <% if post.image.attached? %>
-        <% post.image.each do |image| %>
+      <% if post.images.attached? %>
+        <% post.images.each do |image| %>
           <%= image_tag image.variant(resize: '400x400') %>
          <% end %>
       <% end %></p>

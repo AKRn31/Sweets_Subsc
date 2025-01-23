@@ -9,7 +9,7 @@ class Public::PostsController < ApplicationController
     images = params[:post][:images]
     if images
       images.each do |image|
-        @post.image.attach(images)
+        @post.images.attach(images)
       end
     end
     if @post.save

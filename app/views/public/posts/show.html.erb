@@ -25,7 +25,7 @@
         <td>
         <% if @post.images.attached? %>
               <% @post.images.each do |image| %>
-                <%= image_tag image.variant(resize: '200x200') %>
+                <%= images_tag image.variant(resize: '200x200') %>
               <% end %>
             <% end %></td>
             <td></td>
