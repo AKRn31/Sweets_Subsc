@@ -10,12 +10,11 @@
     <p>サブスク名<%= post.subsc.name %></p>
     <p>タイトル<%= post.title %></p>
     <p>詳細<%= post.body %></p>
-    <p>#画像
-      <% if post.images.attached? %>
+    <p><% if post.images.attached? %>
         <% post.images.each do |image| %>
-          <%= image_tag image.variant(resize: '400x400') %>
+          <%= image_tag image.variant(resize: '200x200') %>
          <% end %>
-      <% end %></p>
+       <% end %></p>
     <p><%= link_to "詳細", post_path(post.id) %>
   <% end %>
   
