@@ -15,8 +15,9 @@
           <%= image_tag image.variant(resize: '200x200') %>
          <% end %>
        <% end %></p>
-    <p><%= link_to "詳細", post_path(post.id) %>
-  <% end %>
+    <p>コメント数: <%= post.comments.count %></p>   
+    <p><%= link_to "詳細", post_path(post.id) %></p>
+   <% end %>
   
 
 

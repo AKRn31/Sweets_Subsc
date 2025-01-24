@@ -8,10 +8,10 @@
             <%= comment.user.username %>
           <% end %>
         </td>
-        <td><%= comment.comment %></td>
+        <td><%= comment.body %></td>
         <td>
           <% if comment.user == current_user %>
-            <%= link_to "Destroy", comment_path(post, comment), method: :delete %>
+            <%= link_to "削除", post_comment_path(post, comment), method: :delete %>
           <% end %>
         </td>
       </tr>

@@ -3,15 +3,15 @@ scope module: :public do
   devise_for :users
   root to: "homes#top"
 
+  resources :posts do
+    resources :comments, only:[:create, :destroy]
+    get 'images', to: 'posts#image'
+  end
+    
   resources :users, only:[:show, :edit, :update] do
-    resources :posts do
-      resources :comments, only:[:create, :destroy]
-      get 'images', to: 'posts#image'
-    end
     get 'confirm'
     patch  'withdraw'
   end
-  
   resources :subscs, only:[:index, :show]
   get '/search', to: 'searches#search'
 end  
