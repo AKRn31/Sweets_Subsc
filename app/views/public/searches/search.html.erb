@@ -1,7 +1,7 @@
 <% if @model == 'user' %>
 	<h3>Users search for "<%= @content %>"</h3>
-  <%= render 'users/index', users: @records %>
+  <%= render 'public/users/index', users: @records %>
 <% elsif @model == 'subsc' %>
 	<h3>Subscs search for "<%= @content %>"</h3>
-  <%= render 'subscs/index', subscs: @records %>
+  <%= render 'public/subscs/index', subscs: @records %>
 <% end %>

@@ -37,3 +37,8 @@ Subsc.find_or_create_by!(
     delivery_frequency: "1週間",
     minimum_period: "2週間"
 )
+
+Admin.find_or_create_by!(
+  Admin_id: "admin",
+  password: "123123"
+)
