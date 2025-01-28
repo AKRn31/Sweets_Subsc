@@ -2,16 +2,14 @@
 
 class Public::RegistrationsController < Devise::RegistrationsController
   
-    # before_action :configure_sign_in_params, only: [:create]
-  
-    def after_sign_in_path_for(resource)
-      subscs_path
-    end
-  
-    def after_sign_out_path_for(resource)
-      root_path
-    end
-  
+  before_action :configure_sign_up_params, only: [:create]
+
+  def after_sign_in_path_for(resource)
+    subscs_path
+  end
+
+  def after_sign_out_path_for(resource)
+    root_path
   end
     
   # before_action :configure_sign_up_params, only: [:create]
@@ -51,12 +49,12 @@ class Public::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_up_params
-  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
-  # end
+  def configure_sign_up_params
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
@@ -72,4 +70,5 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+end
 
