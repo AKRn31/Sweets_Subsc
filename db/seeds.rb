@@ -38,7 +38,8 @@ Subsc.find_or_create_by!(
     minimum_period: "2週間"
 )
 
-Admin.find_or_create_by!(
-  Admin_id: "admin",
-  password: "123123"
-)
+admin = Admin.find_or_initialize_by(email: "admin@yahoo.co.jp")
+if admin.new_record?
+  admin.assign_attributes(password: "123123")
+  admin.save!
+end
