@@ -1,2 +1,16 @@
-<h1>Admin::Subscs#show</h1>
-<p>Find me in app/views/admin/subscs/show.html.erb</p>
+<h1>サブスク詳細</h1>
+  <div>
+  <p><%= @subsc.company_name %></p>
+  <p><%= link_to "レビュー",posts_path(post.id) %></p>
+  <p><%= link_to "投稿する",new_post_path %></p>
+  <p><%= @subsc.name %></p>
+  <p><%= @subsc.title %></p>
+  <p>説明：<%= @subsc.introduction %></p>
+  <p>料金：<%= @subsc.fee %></p>円
+  <p>送料：<%= @subsc.postage %></p>
+  <p>配送頻度：<%= @subsc.delivery_frequency %></p>
+  <p>最低利用期間：<%= @subsc.minimum_period %></p>
+  <% if @is_admin %>
+    <%= link_to "編集", edit_admin_subsc_path(@subsc) %>
+  <% end %>
+</div>

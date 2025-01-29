@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
   
+  namespace :admin do
+    get 'homes/top'
+  end
   devise_for :admin, skip: [:registrations,:password], controllers: {
     sessions: 'admin/sessions'
   }
   namespace :admin do
+    root to: "homes#top"
     get 'dashboards', to: 'dashboards#index'
     resources :users, only: [:destroy]
-    resources :subscs, except: [:destroy]
+    resources :subscs
   end
 
   scope module: :public do

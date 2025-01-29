@@ -1,2 +1,11 @@
-<h1>Admin::Subscs#index</h1>
-<p>Find me in app/views/admin/subscs/index.html.erb</p>
+<h1>サブスク一覧</h1>
+  <div>
+    <% @subscs.each do |subsc| %>
+      <%= link_to subsc_path(subsc.id) do %>
+        <p><%= subsc.company_name %></p>
+        
+        <p><%= subsc.introduction %></p>
+      <% end %>
+    <% end %>
+  </div>
+
