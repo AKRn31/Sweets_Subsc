@@ -1,7 +1,10 @@
 <h1>サブスク一覧</h1>
+  <p><%= link_to "サブスク登録",  new_admin_subsc_path %> </p>
+ 
+
   <div>
     <% @subscs.each do |subsc| %>
-      <%= link_to subsc_path(subsc.id) do %>
+      <%= link_to admin_subscs_path(subsc) do %>
         <p><%= subsc.company_name %></p>
         
         <p><%= subsc.introduction %></p>

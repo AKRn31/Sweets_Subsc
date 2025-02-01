@@ -1,4 +1,5 @@
 class Admin::SubscsController < ApplicationController
+  layout 'admin'
   def new
     @subsc=Subsc.new
   end
@@ -15,6 +16,7 @@ class Admin::SubscsController < ApplicationController
 
   def index
     @subscs=Subsc.all
+   
   end
 
   def show
@@ -23,6 +25,7 @@ class Admin::SubscsController < ApplicationController
   end
 
   def edit
+
   end
 
   private

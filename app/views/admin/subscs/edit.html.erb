@@ -1,2 +1,17 @@
-<h1>Admin::Subscs#edit</h1>
-<p>Find me in app/views/admin/subscs/edit.html.erb</p>
+<h2>Subsc編集</h2>
+  <p>サブスク名<%= @subsc.company_name %>
+    <%= form_with model: @subsc do |f| %>
+    画像
+  <p><%= @subsc.name %></p>
+  <p><%= @subsc.title %></p>
+  <p>説明：<%= @subsc.introduction %></p>
+  <p>料金：<%= @subsc.fee %></p>円
+  <p>送料：<%= @subsc.postage %></p>
+  <p>配送頻度：<%= @subsc.delivery_frequency %></p>
+  <p>最低利用期間：<%= @subsc.minimum_period %></p>
+  <% if @is_admin %>
+    <%= link_to "編集", edit_admin_subsc_path(@subsc) %>
+    <%= f.submit '保存' %>
+    <%= link_to "削除", post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+    <%= link_to '戻る', post_path %>
+  <% end %>

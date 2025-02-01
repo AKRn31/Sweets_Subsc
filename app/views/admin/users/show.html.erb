@@ -1,0 +1,18 @@
+<h2>ユーザー詳細画面</h2>
+  <p>ID<%= @user.id %></p>
+  <p>ユーザーネーム<%= @user.username %></p>
+  <p>メースアドレス<%= @user.email %></p>
+  <p>ステータス<%= @user. %></p>
+  
+  <h4>投稿一覧</h4>
+  <% @posts.each do |post| %>
+    <p>サブスク名<%= post.subsc.name %></p>
+    <p>タイトル<%= post.title %></p>
+    <p>詳細<%= post.body %></p>
+    <p><% if post.images.attached? %>
+        <% post.images.each do |image| %>
+          <%= image_tag image.variant(resize: '200x200') %>
+         <% end %>
+       <% end %></p>
+    <p>コメント数: <%= post.comments.count %></p>   
+   <% end %>
