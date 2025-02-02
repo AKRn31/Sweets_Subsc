@@ -1,0 +1,25 @@
+<h2>投稿一覧</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>投稿日時</th>
+        <th>サブスク名</th><br>
+        <th>ユーザーネーム</th>
+        <th>タイトル</th>
+        <th>説明</th>
+        <th>#投稿画像</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody> <% @posts.each do |post| %>
+      <tr>
+        <th><%= post.created_at.strftime('%Y/%m/%d %H:%M:%S') %></th>
+        <th><%=post.subsc.name if post.subsc  %></th><br>
+        <th><%=post.user.username %></th>
+        <th><%=post.title %></th>
+        <th><%=post.body %></th>
+        <th></th>
+        <th><%= link_to "削除", admin_post_path(post), method: :delete, "data-confirm" => "本当に削除しますか？" %></th>
+      </tr>
+    </tbody><% end %>
+  </table>

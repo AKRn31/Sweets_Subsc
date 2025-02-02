@@ -1,14 +1,14 @@
 class Admin::SubscsController < ApplicationController
   layout 'admin'
   def new
-    @subsc=Subsc.new
+    @subsc = Subsc.new
   end
 
   def create
     @subsc = Subsc.new(subsc_params)
     if @subsc.save
       flash[:notice] = "投稿しました"
-      redirect_to subsc_path(subsc)
+      redirect_to admin_subsc_path(@subsc)
     else
       render :new
     end
@@ -25,7 +25,17 @@ class Admin::SubscsController < ApplicationController
   end
 
   def edit
+    @subsc=Subsc.find(params[:id])
+  end
 
+  def update
+    @subsc=Subsc.find(params[:id])
+    if @subsc.update(subsc_params)
+      flash[:notice] = "保存しました"
+      redirect_to admin_subsc_path(@subsc) 
+    else
+      render :edit
+    end
   end
 
   private

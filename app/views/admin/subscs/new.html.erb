@@ -1,22 +1,22 @@
 <h1>Subsc登録</h1>
-  <%= form_with model: @subsc do |f| %>
+  <%= form_tag(url: admin_subscs_path) do %>
     <h4>会社名</h4>
-      <%= f.text_field :company_name %>
+      <%= text_field_tag 'subsc[company_name]' %>
     <h4>画像</h4>
-      <%= f.file_field :subsc_image, accept: "image/*" %>
+      <%= file_field_tag 'subsc[subsc_image]', accept: "image/*" %>
     <h4>サブスク名</h4>
-      <%= f.text_field :name %>
+      <%= text_field_tag 'subsc[name]' %>
     <h4>タイトル</h4>
-      <%= f.text_field :title %>
+      <%= text_field_tag 'subsc[title]' %>
     <h4>説明</h4>
-      <%= f.text_area :introduction %>
+      <%= text_area_tag 'subsc[body]' %>
     <h4>料金</h4>
-      <%= f.text_field :fee, type: :number %>円
+      <%= text_field_tag  'subsc[fee]' %>
      <h4>送料</h4>
-      <%= f.text_field :postage, placeholder:"無料または〇〇円" %>
+      <%= text_field_tag  'subsc[postage]'%>
     <h4>配送頻度</h4>
-      <%= f.text_field :delivery_frequency, placeholder:"1回/1か月" %>
+      <%= text_field_tag  'subsc[delivery_frequency]'%>
     <h4>最低利用期間</h4>
-      <%= f.text_field :minimum_period, placeholder:"2週間" %>
-    <%= f.submit '新規登録' %>
+      <%= text_field_tag  'subsc[minimum_period]'%>
+    <%= submit_tag '新規登録' %>
   <% end %>

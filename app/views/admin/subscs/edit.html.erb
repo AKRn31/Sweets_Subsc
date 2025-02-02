@@ -9,9 +9,7 @@
   <p>送料：<%= @subsc.postage %></p>
   <p>配送頻度：<%= @subsc.delivery_frequency %></p>
   <p>最低利用期間：<%= @subsc.minimum_period %></p>
-  <% if @is_admin %>
-    <%= link_to "編集", edit_admin_subsc_path(@subsc) %>
     <%= f.submit '保存' %>
-    <%= link_to "削除", post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？" %>
-    <%= link_to '戻る', post_path %>
+    <%= link_to "削除", edit_admin_subsc_path(@subsc), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+    <%= link_to '戻る', admin_subscs_path %>
   <% end %>

@@ -6,7 +6,6 @@
     <% @subscs.each do |subsc| %>
       <%= link_to admin_subscs_path(subsc) do %>
         <p><%= subsc.company_name %></p>
-        
         <p><%= subsc.introduction %></p>
       <% end %>
     <% end %>
