@@ -1,6 +1,6 @@
 class Public::SubscsController < ApplicationController
   def index
-    @subsc=Subsc.all
+    @subscs=Subsc.all
   end
 
   def show

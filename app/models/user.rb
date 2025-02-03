@@ -10,6 +10,12 @@ class User < ApplicationRecord
 
   validates :username, uniqueness: true, length: { in:2..20 }
 
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+    end
+  end
+
   def self.search_for(content, method)
     if method == 'perfect'
       User.where(username: content)
