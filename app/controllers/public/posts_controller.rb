@@ -26,9 +26,10 @@ class Public::PostsController < ApplicationController
   end
 
   def show
+    @posts = Post.all
     @post=Post.find(params[:id])
     @user=@post.user.id
-    @comment = Comment.new
+    @comment = current_user.comments.new
   end
 
   
