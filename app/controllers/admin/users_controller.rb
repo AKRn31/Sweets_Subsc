@@ -10,6 +10,8 @@ class Admin::UsersController < ApplicationController
     @posts = @user.posts
   end
 
+
+
   def destroy
       @user = User.find(params[:id])
       @user.destroy

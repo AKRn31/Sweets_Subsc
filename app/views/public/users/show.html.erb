@@ -7,21 +7,17 @@
 
   <h4>投稿一覧</h4>
   <% @posts.each do |post| %>
-    <% if post.subsc.present? %>
-      <p>サブスク名<%= post.subsc.name %></p>
-    <% else %>
-      <p>サブスク名: (未設定)</p>
-    <% end %>
+    <p>サブスク名<%= post.subsc.name %></p>
     <p>タイトル<%= post.title %></p>
     <p>詳細<%= post.body %></p>
     <p><% if post.images.attached? %>
         <% post.images.each do |image| %>
           <%= image_tag image.variant(resize: '200x200') %>
-         <% end %>
+        <% end %>
        <% end %></p>
     <p>コメント数: <%= post.comments.count %></p>   
     <p><%= link_to "詳細", post_path(post.id) %></p>
-   <% end %>
+  <% end %>
   
 
 

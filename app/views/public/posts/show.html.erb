@@ -19,13 +19,7 @@
         <td><%= link_to user_path(@user) do %>
               <%= @post.user.username %>
             <% end %></td>
-        <td><% @posts.each do |post| %>
-              <% if post.subsc.present? %>
-                <%= post.subsc.name %>
-               <% else %>
-                 
-             <% end %>
-             <% end %></td>
+        <td><%= @post.subsc.name %></td>
         <td><%= @post.title %></td>
         <td><%= @post.body %></td>
         <td>

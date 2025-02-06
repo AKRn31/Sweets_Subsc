@@ -9,13 +9,16 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :destroy]
     resources :posts, only: [:index, :destroy]
   end
-
-  scope module: :public do
-    devise_for :users, controllers: {
+  devise_for :users, controllers: {
       registrations: "public/registrations",
       sessions: 'public/sessions'
     }
-    root to: "homes#top"
+    devise_scope :user do
+      post 'users/guest_sign_in', to: 'public/sessions#guest_sign_in'
+    end
+
+  scope module: :public do
+   root to: "homes#top"
     resources :subscs, only:[:index, :show]
     get '/search', to: 'searches#search'
 

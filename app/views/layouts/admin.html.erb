@@ -18,9 +18,9 @@
     <li>
       <%= link_to "Subsc", admin_subscs_path %>
     </li>
-    <div class="text-right">
+    <li>
       <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %>
-    </div>
+    </li>
   <% end %>
   <%= yield %>
 </body>
