@@ -2,7 +2,7 @@
 
   <div>
     <% @subscs.each do |subsc| %>
-      <%= link_to subscs_path(subsc.id) do %>
+      <%= link_to subsc_path(subsc.id) do %>
         <p><%= subsc.company_name %></p>
         <p><%= subsc.introduction %></p>
       <% end %>
