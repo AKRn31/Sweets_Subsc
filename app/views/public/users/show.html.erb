@@ -1,10 +1,21 @@
-<h2>ユーザー詳細画面</h2>
-  <p>ユーザーネーム<%= @user.username %></p>
-  <% if @user = current_user %>
-    <p>メースアドレス<%= @user.email %></p>
-    <p><%= link_to "ユーザー情報の編集", edit_user_path(@user) %></p>
-  <% end %>
+<div class="col-md-10 offset-md-1">
+  <h2>ユーザー画面</h2>
+  <table class="table col-md-5 offset-md-1">
+    <tr>
+      <th scope="row">ユーザーネーム </th>
+      <th><%= @user.username %></th>
+    </tr>
+    <tr>
+      <th scope="row">メースアドレス</th>
+      <th><% if @user = current_user %>
+            <%= @user.email %>
+         </th>
+    </tr>
+  </table>
+  <p class="col offset-md-6"><%= link_to "ユーザー情報の編集", edit_user_path(@user), class:'btn btn-secondary ' %></p>
+          <% end %>
 
+  <div class="col-md-5 offset-md-1 striped">
   <h4>投稿一覧</h4>
   <% @posts.each do |post| %>
     <p>サブスク名<%= post.subsc.name %></p>
@@ -18,6 +29,7 @@
     <p>コメント数: <%= post.comments.count %></p>   
     <p><%= link_to "詳細", post_path(post.id) %></p>
   <% end %>
+  </div>
   
 
 

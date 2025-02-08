@@ -4,10 +4,16 @@
 
   <div>
     <% @subscs.each do |subsc| %>
-      <%= link_to admin_subscs_path(subsc) do %>
-        <p><%= subsc.company_name %></p>
-        <p><%= subsc.introduction %></p>
+      
+        <%= link_to admin_subsc_path(subsc.id) do %>
+          <p><%= subsc.company_name %></p>
+          <p><% if subsc.subsc_image.present? %>
+            <%= image_tag subsc.subsc_image, size: "200x200" %></p>
+          <% end %>
+          <p><%= subsc.introduction %></p>
+        
       <% end %>
-    <% end %>
+     
+   <% end %>
   </div>
 

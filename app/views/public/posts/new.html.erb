@@ -9,9 +9,9 @@
 <% end %>
 
 
-<%= form_with model: @post do |f| %>
+
   
-  <p>ユーザーネーム<%= current_user.username %></p>
+  <p>ユ<%= form_with model: @post do |f| %>ーザーネーム<%= current_user.username %></p>
   <p>サブスク会社名<%= f.select :subsc_id, options_from_collection_for_select( Subsc.all, :id, :company_name) %></p>
   <p>タイトル<%= f.text_area :title %></p>
   <p>詳細 <%= f.text_area :body %></p>

@@ -9,8 +9,7 @@ class Admin::SubscsController < ApplicationController
     if @subsc.save
       flash[:notice] = "投稿しました"
       redirect_to admin_subsc_path(@subsc)
-    else
-      render :new
+ 
     end
   end
 
@@ -21,7 +20,7 @@ class Admin::SubscsController < ApplicationController
 
   def show
     @subsc=Subsc.find(params[:id])
-    @is_admin = current_user.admin?
+    @posts=@subsc.posts
   end
 
   def edit

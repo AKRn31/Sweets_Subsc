@@ -1,9 +1,11 @@
 <h1>サブスク詳細</h1>
   <div>
   <p><%= @subsc.company_name %></p>
-  <p><%= link_to "レビュー",posts_path(post.id) %></p>
-  <p><%= link_to "投稿する",new_post_path %></p>
-  画像
+  <p><%= link_to "レビュー", posts_path(@post) %></p>
+  <p><%= link_to "投稿する", new_post_path %></p>
+  <p><% if @subsc.subsc_image.present? %>
+       <%= image_tag @subsc.subsc_image, size: "200x200" %>
+     <% end %></p>
   <p><%= @subsc.name %></p>
   <p><%= @subsc.title %></p>
   <p>説明：<%= @subsc.introduction %></p>
