@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: "homes#top"
     resources :subscs
-    resources :users, only: [:index, :show, :destroy]
+    resources :users, only: [:index, :show, :destroy,:update]
     resources :posts, only: [:index, :destroy]
   end
   devise_for :users, controllers: {
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   scope module: :public do
    root to: "homes#top"
-    resources :subscs, only:[:index, :show, :create]
+    resources :subscs, only:[:index, :show, :create, :update, :destroy]
     get '/search', to: 'searches#search'
 
     resources :posts do

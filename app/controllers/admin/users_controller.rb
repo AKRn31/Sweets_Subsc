@@ -10,6 +10,16 @@ class Admin::UsersController < ApplicationController
     @posts = @user.posts
   end
 
+  def update
+    @user=User.find(params[:id])
+    if @user.update(is_deleted:params[:user][:is_deleted])
+    flash[:notice] = "保存しました"
+    redirect_to admin_users_path
+    else
+      redirect_to admin_user_path(@user)
+    end
+  end
+
 
 
   def destroy

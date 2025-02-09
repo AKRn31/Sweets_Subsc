@@ -37,6 +37,12 @@ class Admin::SubscsController < ApplicationController
     end
   end
 
+  def destroy
+    @subsc = Subsc.find(params[:id])
+    @subsc.destroy
+    redirect_to admin_subscs_path, notice: 'サブスク情報を削除しました'
+  end
+
   private
   def subsc_params
     params.require(:subsc).permit(:subsc_image, :company_name, :name, :title, :introduction, :fee, :postage, :delivery_frequency, :minimum_period)

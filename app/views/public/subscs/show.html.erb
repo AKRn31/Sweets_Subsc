@@ -1,18 +1,24 @@
 <div class="col-md-10 offset-md-1">
   <h1>サブスク詳細</h1>
-  <%= @subsc.company_name %>
-  <%= link_to "レビュー",posts_path(@post), class:"btn btn-outline-warning btn-sm" %>
-  <%= link_to "投稿する",new_post_path, class:"btn btn-outline-success btn-sm" %>
-  <p><% if @subsc.subsc_image.present? %>
-       <%= image_tag @subsc.subsc_image, size: "200x200" %>
-     <% end %></p>
-  <p><%= @subsc.name %></p>
-  <p><%= @subsc.title %></p>
-  <p>説明：<%= @subsc.introduction %></p>
-  <p>料金：<%= @subsc.fee %>円</p>
-  <p>送料：<%= @subsc.postage %></p>
-  <p>配送頻度：<%= @subsc.delivery_frequency %></p>
-  <p>最低利用期間：<%= @subsc.minimum_period %></p>
+  <div class="row no-gutters bg-light position-relative">
+    <div class="col-md-6 mb-md-0 p-md-4">
+      <h4><%= @subsc.company_name %></h4>
+      <%= link_to "レビュー",posts_path(@post), class:"btn btn-outline-warning btn-sm" %>
+      <%= link_to "投稿する",new_post_path, class:"btn btn-outline-success btn-sm" %>
+      <p><% if @subsc.subsc_image.present? %>
+         <%= image_tag @subsc.subsc_image, size: "200x200", class:"bd-placeholder-img w-100" %>
+         <% end %></p>
+      <div class="col-md-6 position-static p-4 pl-md-0">
+        <p class="mt-0"><strong><%= @subsc.name %></strong></p>
+        <p><%= @subsc.title %></p>
+        <p>説明：<%= @subsc.introduction %></p>
+        <p>料金：<%= @subsc.fee %>円</p>
+        <p>送料：<%= @subsc.postage %></p>
+        <p>配送頻度：<%= @subsc.delivery_frequency %></p>
+        <p>最低利用期間：<%= @subsc.minimum_period %></p>
+      </div>
+    </div>
+  </div>
 
 </div>
 

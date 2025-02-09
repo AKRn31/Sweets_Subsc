@@ -9,11 +9,10 @@
   <p><%= @subsc.name %></p>
   <p><%= @subsc.title %></p>
   <p>説明：<%= @subsc.introduction %></p>
-  <p>料金：<%= @subsc.fee %></p>円
+  <p>料金：<%= @subsc.fee %>円</p>
   <p>送料：<%= @subsc.postage %></p>
   <p>配送頻度：<%= @subsc.delivery_frequency %></p>
   <p>最低利用期間：<%= @subsc.minimum_period %></p>
-  <% if @is_admin %>
-    <%= link_to "編集", edit_admin_subsc_path(@subsc) %>
-  <% end %>
+  <p><%= link_to "編集", edit_admin_subsc_path(@subsc) %><p>
+  
 </div>

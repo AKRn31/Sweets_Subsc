@@ -3,7 +3,13 @@
   <p>ユーザーネーム<%= @user.username %></p>
   <p>メースアドレス<%= @user.email %></p>
   <p>ステータス 
- 
+    <%= form_with model: @user,url:admin_user_path(@user) do |f| %>
+      <%= f.radio_button :is_deleted, true %>
+      <%= f.label :is_deleted, "退会済み" %>
+      <%= f.radio_button :is_deleted, false %>
+      <%= f.label :is_deleted, "有効" %>
+      <%= f.submit '保存', class:"btn btn-success" %>
+    <% end %>
   </p>
    
   
