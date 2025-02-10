@@ -1,4 +1,4 @@
-<div class="col-md-10 offset-md-1">
+<div class="col-md-9 offset-md-1">
   <h1>サブスク詳細</h1>
   <div class="row no-gutters bg-light position-relative">
     <div class="col-md-6 mb-md-0 p-md-4">
@@ -6,7 +6,7 @@
       <%= link_to "レビュー",posts_path(@post), class:"btn btn-outline-warning btn-sm" %>
       <%= link_to "投稿する",new_post_path, class:"btn btn-outline-success btn-sm" %>
       <p><% if @subsc.subsc_image.present? %>
-         <%= image_tag @subsc.subsc_image, size: "200x200", class:"bd-placeholder-img w-100" %>
+         <%= image_tag @subsc.subsc_image, size: "400x300", class:"figure-img img-fluid rounded" %>
          <% end %></p>
       <div class="col-md-6 position-static p-4 pl-md-0">
         <p class="mt-0"><strong><%= @subsc.name %></strong></p>

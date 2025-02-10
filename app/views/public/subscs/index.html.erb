@@ -3,12 +3,12 @@
   <h1>Subscs</h1>
     <% @subscs.each do |subsc| %>
       <%= link_to subsc_path(subsc) do %>
-        <p><%= subsc.company_name %></p>
         <p><% if subsc.subsc_image.present? %>
-            <%= image_tag subsc.subsc_image, size: "200x200" %>
-          
+            <%= image_tag subsc.subsc_image, size: "400x300", class:"figure-img img-fluid rounded mb-0" %>
           <% end %></p>
-        <p><%= subsc.introduction %></p>
+        <dt><%= subsc.company_name %></dt>
+        <dd><%= subsc.introduction %></dd>
       <% end %>
     <% end %>
+
 </div>

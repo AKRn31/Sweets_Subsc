@@ -17,6 +17,11 @@ class User < ApplicationRecord
     end
   end
 
+  def display_status
+    is_deleted ? '退会済み' : '有効'
+  end
+
+
   def self.search_for(content, method)
     if method == 'perfect'
       User.where(username: content)

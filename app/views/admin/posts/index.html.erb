@@ -18,7 +18,11 @@
         <th><%=post.user.username %></th>
         <th><%=post.title %></th>
         <th><%=post.body %></th>
-        <th></th>
+        <th><% if post.images.attached? %>
+              <% post.images.each do |image| %>
+                <%= image_tag image.variant(resize: '200x200') %>
+              <% end %>
+            <% end %></th>
         <th><%= link_to "削除", admin_post_path(post), method: :delete, "data-confirm" => "本当に削除しますか？" %></th>
       </tr>
     </tbody><% end %>
