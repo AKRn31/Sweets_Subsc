@@ -1,11 +1,5 @@
 class Public::PostsController < ApplicationController
-before_action :guest_check
-
-  def guest_check
-    if current_user == User.guest
-      redirect_to root_path,notice: "このページを見るには会員登録が必要です。"
-    end
-  end
+  before_action :guest_check, only: [:new, :create, :edit, :update, :destroy]
 
   def new
     @post = Post.new
@@ -15,11 +9,11 @@ before_action :guest_check
     @post = Post.new(post_params)
     @post.user= current_user
     images = params[:post][:images]
-    if images
-      images.each do |image|
-        @post.images.attach(image)
-      end
-    end
+    #if images
+    #  images.each do |image|
+    #    @post.images.attach(image)
+    #  end
+    #end
     if @post.save
       flash[:notice] = "投稿しました"
       redirect_to @post
@@ -30,7 +24,6 @@ before_action :guest_check
 
   def index
     @posts = Post.all
-   
   end
 
   def show
@@ -51,11 +44,17 @@ before_action :guest_check
   end
 
   def update
-    @post=Post.find(params[:id])
+    @post = Post.find(params[:id])
+    if params.dig(:post, :image_ids)&.any?
+      params[:post][:image_ids].each do |image_id|
+        image = @post.images.find(image_id)
+        image.purge
+      end
+    end
     if @post.update(post_params)
-      flash[:notice] = "投稿を保存しました"
-      redirect_to post_path(@post.id) 
+      redirect_to post_path(@post), notice: "更新に成功しました。"
     else
+      flash.now[:alert] = "更新に失敗しました"
       render :edit
     end
   end

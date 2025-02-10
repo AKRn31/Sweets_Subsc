@@ -1,6 +1,6 @@
 <h1>Subsc登録</h1>
 
-<%= form_with model: @subsc do |f| %>
+<%= form_with model: [:admin, @subsc] do |f| %>
   
   <p>会社名<%= f.text_field :company_name %></p>
   <p>画像<%= f.file_field :subsc_image, accept: "image/*" %></p>

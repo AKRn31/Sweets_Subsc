@@ -1,5 +1,7 @@
 class Admin::SubscsController < ApplicationController
   layout 'admin'
+  before_action :authenticate_admin!
+
   def new
     @subsc = Subsc.new
   end

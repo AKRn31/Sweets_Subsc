@@ -1,11 +1,5 @@
 class Public::UsersController < ApplicationController
-  before_action :guest_check
-
-  def guest_check
-    if current_user == User.guest
-      redirect_to root_path,notice: "このページを見るには会員登録が必要です。"
-    end
-  end
+  before_action :guest_check, only: [:edit, :update, :confirm, :withdraw]
   
   def show
     @user=User.find(params[:id])

@@ -1,5 +1,5 @@
 <h2>サブスク情報編集</h2>
-  <%= form_with model: @subsc do |f| %>
+  <%= form_with model: [:admin, @subsc] do |f| %>
   <p>サブスク会社名<%= f.text_field :company_name %>
   <p>画像<%= f.file_field :subsc_image, accept: "image/*" %></p>
   <p>サブスク名<%= f.text_field :name %></p>
@@ -10,6 +10,6 @@
   <p>配送頻度：<%= f.text_field :delivery_frequency %></p>
   <p>最低利用期間：<%= f.text_field :minimum_period %></p>
     <%= f.submit '保存' %>
-    <%= link_to "削除", edit_admin_subsc_path(@subsc), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+    <%= link_to "削除", admin_subsc_path(@subsc), method: :delete, "data-confirm" => "本当に削除しますか？" %>
     <%= link_to '戻る', admin_subscs_path %>
   <% end %>
