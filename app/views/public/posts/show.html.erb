@@ -1,43 +1,25 @@
 <div class="col-md-10 offset-md-1">
 <h2>投稿詳細</h2>
-<div>
-  <table class="table">
-    <thead>
-      <tr> 
-        <th><h4>ユーザーネーム</h4></th>
-        <th><h4>サブスク名</h4></th>
-        <th><h4>タイトル</h4></th>
-        <th><h4>詳細</h4></th>
-        <th><h4>画像</h4></th>
-        <th><h4>コメント</h4></th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><%= link_to user_path(@user) do %>
-              <%= @post.user.username %>
-            <% end %></td>
-        <td><%= @post.subsc.name %></td>
-        <td><%= @post.title %></td>
-        <td><%= @post.body %></td>
-        <td>
-        <% if @post.images.attached? %>
+  <div class="border">
+    <%= link_to user_path(@user) do %>
+      <p>ユーザーネーム：<%= @post.user.username %></p>
+    <% end %>
+      <p>サブスク名：<%= @post.subsc.name %></p>
+      <p>タイトル<%= @post.title %></p>
+      <p>詳細<%= @post.body %></p>
+      <p><% if @post.images.attached? %>
               <% @post.images.each do |image| %>
                 <%= image_tag image.variant(resize: '200x200') %>
               <% end %>
-            <% end %></td>
-            <td></td>
-        <% if @post.user == current_user %>
-          <td><%= link_to "編集", edit_post_path(@post) %></td>
-        <% end %>
-        <td>コメント数: <%= @post.comments.count %></td>
+             <% end %> </p>
+      <p>コメント数: <%= @post.comments.count %> </p>
+  </div>
+        <%= render "public/comments/comment",  locals: {post: @post} %><%= render "public/comments/form", locals: { comment: @comment} %>
+        
+           
+        <td></td>
       </tr>
-    </tbody>
   </table>
-      <%= render "public/comments/comment",  locals: {post: @post} %>
-      <%= render "public/comments/form", locals: { comment: @comment} %>
+      
 </div>
   

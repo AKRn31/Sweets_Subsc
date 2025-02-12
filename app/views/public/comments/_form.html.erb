@@ -1,4 +1,12 @@
+
+<div class="col-8 offset-md-6 ">
 <%= form_with(model: [@post,@comment], local: true) do |f| %>
-  <%= f.text_area :body, rows:'5', placeholder: "コメントをここに" %>
-  <%= f.submit "コメントする" %>
+<div class="form-group col-5 ">
+    <label for="comment_body">コメント</label>
+      <%= f.text_area :body, rows:'5', placeholder: "コメントをここに"  , class: "form-control" %> 
+
+  <%= f.submit "コメントする", class:" btn btn-outline-secondary btn-sm mt-2" %></div>
 <% end %>
+</div>
+
+

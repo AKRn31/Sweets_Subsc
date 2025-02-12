@@ -27,9 +27,10 @@
             <% end %>
           <% end %>
       </td>
+      <p>
       <td><%= link_to "詳細", post_path(post) %></td>
       <td>コメント数: <%= post.comments.count %></td>
-      <td><%= link_to "コメントする", post_path(post.id) %></td>
+      <td><%= link_to "コメントする", post_path(post.id) %></td></p>
   </tbody> <% end %>
     
 

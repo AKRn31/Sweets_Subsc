@@ -1,8 +1,18 @@
-<table>
+
+
+<div class="col-md-5 mt-5">
+<h3>コメント一覧</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th>ユーザーネーム</th>
+      <th>コメント</th>
+      <th></th>
+    </tr>
+  </thead>
   <tbody>
       <% @post.comments.each do |comment| %>
       <tr>
-        
         <td>
           <%= link_to user_path(comment.user) do %>
             <%= comment.user.username %>
@@ -11,6 +21,7 @@
         <td><%= comment.body %></td>
         <td>
           <% if comment.user == current_user %>
+            <%= link_to "編集", edit_post_path(comment.post,comment) %>
             <%= link_to "削除", post_comment_path(comment.post,comment), method: :delete %>
           <% end %>
         </td>
@@ -18,3 +29,4 @@
       <% end %>
   </tbody>
 </table>
+</div></div></div>
