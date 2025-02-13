@@ -2,15 +2,15 @@
 
 <%= form_with model: [:admin, @subsc] do |f| %>
   
-  <p>会社名<%= f.text_field :company_name %></p>
-  <p>画像<%= f.file_field :subsc_image, accept: "image/*" %></p>
-  <p>サブスク名<%= f.text_field :name %></p>
-  <p>タイトル <%= f.text_field :title %></p>
-  <p>説明<%= f.text_area :introduction %></p>
-  <p>料金<%= f.text_field :fee %></p>
-  <p>送料<%= f.text_field :postage %></p>
-  <p>配送頻度<%= f.text_field :delivery_frequency %></p>
-  <p>最低利用期間<%= f.text_field :minimum_period %></p>
+  <p>会社名：<%= f.text_field :company_name %></p>
+  <p>サブスク名：<%= f.text_field :name %></p>
+  <p>タイトル：<%= f.text_field :title %></p>
+  <p>説明：<%= f.text_area :introduction %></p>
+  <p>画像：<%= f.file_field :subscs_image, accept: "image/*" %></p>
+  <p>料金：<%= f.text_field :fee %></p>
+  <p>送料：<%= f.text_field :postage %></p>
+  <p>配送頻度：<%= f.text_field :delivery_frequency %></p>
+  <p>最低利用期間：<%= f.text_field :minimum_period %></p>
   <%= f.submit '保存', class:"btn btn-success" %>
   
  

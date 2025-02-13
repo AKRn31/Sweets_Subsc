@@ -5,7 +5,7 @@ class Public::SubscsController < ApplicationController
 
   def show
     @subsc=Subsc.find(params[:id])
-    @posts= @subsc.posts
+   
   end
 
   def create

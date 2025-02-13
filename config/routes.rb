@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   scope module: :public do
    root to: "homes#top"
     resources :subscs, only:[:index, :show, :create, :update, :destroy]
-    get '/search', to: 'searches#search'
+    get 'search', to: 'searches#search'
 
     resources :posts do
       resources :comments, only:[:create, :destroy]

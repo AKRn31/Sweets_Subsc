@@ -1,13 +1,12 @@
 <div class="col-md-9 offset-md-1">
   <h1>サブスク詳細</h1>
-  <div class="row no-gutters bg-light ">
-      <h4><%= @subsc.company_name %></h4>
-
-      <div class="d-flex flex-row bd-highlight mb-3">
-        <div class="p-2 bd-highlight">
-          <p><% if @subsc.subsc_image.present? %>
-            <%= image_tag @subsc.subsc_image, size: "400x300", class:"rounded" %>
-            <% end %></p>
+  <div class="no-gutters bg-light ">
+    <h4><%= @subsc.company_name %></h4>
+    <div class="d-flex flex-row bd-highlight mb-3">
+      <div class="p-2 bd-highlight">
+        <p><% if @subsc.subsc_image.present? %>
+             <%= image_tag @subsc.subsc_image, size: "400x300", class:"rounded" %>
+           <% end %></p>
         </div>
         <div class="p-2 bd-highlight">
 
@@ -18,8 +17,8 @@
           <p>送料：<%= @subsc.postage %></p>
           <p>配送頻度：<%= @subsc.delivery_frequency %></p>
           <p>最低利用期間：<%= @subsc.minimum_period %></p>
-          <%= link_to "レビューを見る",posts_path(@post), class:"btn btn-outline-warning btn-sm col-3" %>
-          <%= link_to "投稿する",new_post_path, class:"btn btn-outline-success btn-sm  col-3" %>
+          <%= link_to "レビューを見る",posts_path, class:"btn btn-outline-warning btn-sm col-3" %>
+          <%= link_to "レビューを投稿する",new_post_path, class:"btn btn-outline-success btn-sm  col-4" %>
         </div>  
       </div> 
   

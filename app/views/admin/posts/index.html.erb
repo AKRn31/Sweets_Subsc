@@ -1,3 +1,4 @@
+<div class="col-md-10 offset-md-1">
 <h2>投稿一覧</h2>
   <table class="table">
     <thead>
@@ -15,7 +16,7 @@
       <tr>
         <th><%= post.created_at.strftime('%Y/%m/%d %H:%M:%S') %></th>
         <th><%=post.subsc.name if post.subsc  %></th><br>
-        <th><%=post.user.username %></th>
+        <th> <%=post.user.username %></th>
         <th><%=post.title %></th>
         <th><%=post.body %></th>
         <th><% if post.images.attached? %>
@@ -27,3 +28,4 @@
       </tr>
     </tbody><% end %>
   </table>
+</div>

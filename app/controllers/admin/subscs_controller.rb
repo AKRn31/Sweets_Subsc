@@ -11,7 +11,9 @@ class Admin::SubscsController < ApplicationController
     if @subsc.save
       flash[:notice] = "投稿しました"
       redirect_to admin_subsc_path(@subsc)
- 
+    else
+      flash.now[:alert] = "投稿に失敗しました"
+      render :new
     end
   end
 
@@ -32,9 +34,10 @@ class Admin::SubscsController < ApplicationController
   def update
     @subsc=Subsc.find(params[:id])
     if @subsc.update(subsc_params)
-      flash[:notice] = "保存しました"
       redirect_to admin_subsc_path(@subsc) 
+      flash[:notice] = "保存しました"
     else
+      flash[:notice] ="失敗しました"
       render :edit
     end
   end

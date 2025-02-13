@@ -15,20 +15,37 @@
   <p class="col offset-md-6"><%= link_to "ユーザー情報の編集", edit_user_path(@user), class:'btn btn-secondary ' %></p>
           <% end %>
 
-  <div class="col-md-5 offset-md-1 striped">
-  <h4>投稿一覧</h4>
-  <% @posts.each do |post| %>
-    <p>サブスク名<%= post.subsc.name %></p>
-    <p>タイトル<%= post.title %></p>
-    <p>詳細<%= post.body %></p>
-    <p><% if post.images.attached? %>
-        <% post.images.each do |image| %>
-          <%= image_tag image.variant(resize: '200x200') %>
-        <% end %>
-       <% end %></p>
-    <p>コメント数: <%= post.comments.count %></p>   
-    <p><%= link_to "詳細", post_path(post.id) %></p>
-  <% end %>
+
+  <h2>投稿一覧</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>サブスク名</th><br>
+          <th>タイトル</th>
+          <th>詳細</th>
+          <th>#投稿画像</th>
+        </tr>
+      </thead>
+      <tbody> 
+      <% @posts.each do |post| %>
+        <tr>
+          <td><%= post.subsc.name %></td>
+          <td><%= post.title %></td>
+          <td><%= post.body %></td>
+          <td>
+          <% if post.images.attached? %>
+            <% post.images.each do |image| %>
+              <%= image_tag image.variant(resize: '150x150') %>
+            <% end %>
+          <% end %>
+          </td>
+      <p class="col-2">
+      <td><%= link_to "編集", edit_post_path(post) %></td>
+      <td><%= link_to "詳細", post_path(post) %></td>
+      <td>コメント数: <%= post.comments.count %></td></p>
+    <% end %>
+  </tbody>
+
   </div>
   
 

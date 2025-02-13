@@ -4,7 +4,6 @@ class Admin::PostsController < ApplicationController
   
   def index
     @posts = Post.all
-  
   end
 
   def destroy
@@ -14,6 +13,12 @@ class Admin::PostsController < ApplicationController
     else
       redirect_to admin_posts_path(@post), alert: '投稿の削除に失敗しました'
     end
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:user_id)
   end
 end
 
