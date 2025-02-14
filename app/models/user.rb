@@ -23,15 +23,18 @@ class User < ApplicationRecord
 
 
   def self.search_for(content, method)
-    if method == 'perfect'
+    return User.none if content.blank? 
+    case method
+    when 'perfect'
       User.where(username: content)
-    elsif method == 'forward'
-      User.where('username LIKE ?', content + '%')
-    elsif method == 'backward'
-      User.where('username LIKE ?', '%' + content)
+    when 'forward'
+      User.where('username LIKE ?', "#{content}%")
+    when 'backward'
+      User.where('username LIKE ?', "%#{content}")
     else
-      User.where('username LIKE ?', '%' + content + '%')
+      User.where('username LIKE ?', "%#{content}%")
     end
   end
  
 end
+

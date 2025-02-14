@@ -18,9 +18,10 @@ Rails.application.routes.draw do
     end
 
   scope module: :public do
-   root to: "homes#top"
+    get 'search', to: 'searches#search', as: 'search'
+    root to: "homes#top"
     resources :subscs, only:[:index, :show, :create, :update, :destroy]
-    get 'search', to: 'searches#search'
+    
 
     resources :posts do
       resources :comments, only:[:create, :destroy]

@@ -5,14 +5,17 @@ class Subsc < ApplicationRecord
 
 
   def self.search_for(content, method)
-    if method == 'perfect'
+    return Subsc.none if content.blank? 
+
+    case method
+    when 'perfect' 
       Subsc.where(name: content)
-    elsif method == 'forward'
-      Subsc.where('name LIKE ?', content+'%')
-    elsif method == 'backward'
-      Subsc.where('name LIKE ?', '%'+content)
+    when 'forward'
+      Subsc.where('name LIKE ?', "#{content}%")
+    when 'backward'
+      Subsc.where('name LIKE ?', "%#{content}")
     else
-      Subsc.where('name LIKE ?', '%'+content+'%')
+      Subsc.where('name LIKE ?',  "%#{content}%")
     end
   end
 end
