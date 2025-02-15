@@ -51,9 +51,10 @@
     </header>
     <main>
       <%= render 'public/searches/form' %>
-      <%= render 'public/searches/search' %>
       <%= flash[:notice]  %>
+      <%= render 'public/searches/search' %>
       <%= yield %>
+      
     </main>
   </body>
 </html>

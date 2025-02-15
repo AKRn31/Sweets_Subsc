@@ -1,0 +1,27 @@
+<div class="col-md-10 offset-md-1">
+<h1>全ユーザー一覧</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>ユーザーネーム</th>
+        <th>メールアドレス</th>
+        <th>ステータス</th>
+      </tr>
+    </thead>
+    
+      <% users.each do |user| %>
+    <tbody>
+        
+          <td><%= user.id %></td>
+          <td><%= link_to admin_user_path(user.id) do %>
+                <%= user.username %>
+              <% end %>
+          </td>
+          <td><%= user.email %></td>
+          <td><%= user.display_status %></td>
+       
+      <% end %>
+    </tbody>
+  </table>
+</div>

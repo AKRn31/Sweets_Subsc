@@ -1,8 +1,6 @@
 <% if @model  == 'user' %>
-	<h3> @records = User.search_for(@content, @method) </h3>
   <%= render 'public/users/index', users: @records %>
 <% elsif @model == 'subsc' %>
-	<h3> @records = Subsc.search_for(@content, @method) </h3>
   <%= render 'public/subscs/index', subscs: @records %>
 
 <% end %>
