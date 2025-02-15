@@ -1,0 +1,27 @@
+
+<h1 class="col-md-10 offset-md-1">Subscs</h1>
+
+<div class="container">
+  <div class="row">
+    <% subscs.each do |subsc| %>
+    <div class="col-md-4">
+    <div class="card pb-4">
+    <style>
+      .card {border: none;}
+    </style>
+   <span class="border">
+      <%= link_to subsc_path(subsc) do %>
+  
+        <% if subsc.subsc_image.present? %>
+            <%= image_tag subsc.subsc_image , class:"bd-placeholder-img card-img-top date-holder-rendered=true" , style:"h-225px w-100% display-block" %>
+          <% end %>
+      <div class="card body border-ligh">
+        <h4 class="card text text-secondary"><strong><%= subsc.name %></strong></h4>
+        <p class="card text text-secondary"><%= subsc.introduction %></p>
+      </div></div></div>
+      <% end %>
+    <% end %>
+    </span>
+    
+  </div>
+</div>
