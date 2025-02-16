@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: "homes#top"
     resources :subscs
-    resources :users, only: [:index, :show, :destroy,:update]
+    resources :users, only: [:index, :show, :destroy, :update]
     resources :posts, only: [:index, :destroy]
   end
   devise_for :users, controllers: {

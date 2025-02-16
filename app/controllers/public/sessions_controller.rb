@@ -20,14 +20,36 @@ class Public::SessionsController < Devise::SessionsController
 
     def user_state
       user = User.find_by(email: params[:username][:email])
-      return if customer.nil?
-        return unless customer.valid_password?(params[:customer][:password])
-        if  user.is_deleted == true
-          redirect_to new_user_registration_path
+      if user.nil?
+        flash[:notice] = "該当するユーザーが見つかりません"
+      else
+        unless user.valid_password?(params[:username][:password])
+          flash[:notice] = "パスワードが違います"
         else
-          flash[:notice] = "該当するユーザーが見つかりません"
-        end
+          if user.is_deleted
+            redirect_to new_user_registration_path
+          else
+            redirect_to subscs_path
+          end
       end
+    end
+
+  def create
+    user = User.find_by(email: params[:email])
+  
+      if user && user.authenticate(params[:password])
+        if user.is_deleted?
+          flash[:alert] = "アカウントが削除されているためログインできません。"
+          redirect_to login_path
+        else
+          redirect_to subscs_path
+        end
+      else
+        flash[:alert] = "メールアドレスまたはパスワードが間違っています。"
+        redirect_to login_path
+      end
+  end
+
    
     protected
   
@@ -37,6 +59,6 @@ class Public::SessionsController < Devise::SessionsController
     #end
   end
 
-
+end
 
 

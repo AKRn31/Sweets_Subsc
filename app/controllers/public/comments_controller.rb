@@ -15,6 +15,7 @@ class Public::CommentsController < ApplicationController
 
   def destroy
     Comment.find_by(id: params[:id], post_id: params[:post_id]).destroy
+    flash[:notice] = "削除しました"
     redirect_to request.referer
   end
 
